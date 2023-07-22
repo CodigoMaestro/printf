@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <stdarg.h>
+#include "main.h"
 
 /**
  * print_char - entry point
@@ -9,7 +9,7 @@
 
 int print_char(char c)
 {
-	putchar(c);
+	my_putchar(c);
 	return (1);
 }
 
@@ -28,7 +28,7 @@ int print_string(const char *str)
 
 	while (*str)
 	{
-		putchar(*str);
+		my_putchar(*str);
 		str++;
 		count++;
 	}
@@ -60,13 +60,13 @@ int process_format(const char *format, va_list args)
 					count += print_string(va_arg(args, const char *));
 					break;
 				case '%':
-					putchar('%');
+					my_putchar('%');
 					count++;
 					break;
 				default:
 					{
-						putchar('%');
-						putchar(*format);
+						my_putchar('%');
+						my_putchar(*format);
 						count += 2;
 						break;
 					}
@@ -74,7 +74,7 @@ int process_format(const char *format, va_list args)
 		}
 		else
 		{
-			putchar(c);
+			my_putchar(c);
 			count++;
 		}
 		format++;
