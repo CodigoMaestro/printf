@@ -105,7 +105,6 @@ int _printf(const char *format, ...)
 		return (-1);
 	count = process_format(format, args);
 
-	my_putchar(-1);
 	va_end(args);
 	return (count);
 }
