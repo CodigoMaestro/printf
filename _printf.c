@@ -1,101 +1,99 @@
-#include "main.h"
+#include <stdio.h>
 #include <stdarg.h>
 
 /**
  * print_char - entry point
- * @container: va_list
- * Return: void
- */
-
-void print_char(va_list container)
-{
-	char c = va_arg(container, int);
-
-	my_putchar(c);
-}
-
-/**
- * print_str - entry point
- * @container: va_list
+ * @c: char
  * Return: int
  */
 
-int print_str(va_list container)
+int print_char(char c)
 {
-	char *s;
-	int char_count = 0;
-
-	s = va_arg(container, char *);
-	while (*s)
-	{
-		my_putchar(*s);
-		s++;
-		char_count++;
-	}
-	return (char_count);
+	putchar(c);
+	return (1);
 }
 
-void print_decimal(va_list container)
+/**
+ * print_string - entry point
+ * @str: char
+ * Return: 0
+ */
+
+int print_string(const char *str)
 {
-	unsigned int d;
+	int count = 0;
 
-	d = va_arg(container, int);
-
-	if (d < 0)
+	while (*str)
 	{
-		d = -d;
+		putchar(*str);
+		str++;
+		count++;
 	}
-	my_putchar('-');
-	my_putchar(d);
+	return (count);
 }
 /**
- * _printf - entry point
+ * process_format - entry point
  * @format: char
+ * @args: va_list
  * Return: int
  */
 
-int _printf(const char *format, ...)
+int process_format(const char *format, va_list args)
 {
-	int char_count = 0;
-	va_list container;
+	int count = 0;
+	char c;
 
-	va_start(container, format);
-
-	while (*format)
+	while ((c = *format))
 	{
-		if (*format == '%')
+		if (c == '%')
 		{
 			format++;
-
 			switch (*format)
 			{
 				case 'c':
-					print_char(container);
-					char_count++;
+					count += print_char(va_arg(args, int));
 					break;
 				case 's':
-					print_str(container);
+					count += print_string(va_arg(args, const char *));
 					break;
 				case '%':
-					my_putchar('%');
-					char_count++;
+					putchar('%');
+					count++;
 					break;
-				case 'd':
-					print_decimal(container);
 				default:
-					my_putchar('%');
-					my_putchar(*format);
-					char_count += 2;
-					break;
+					{
+						putchar('%');
+						putchar(*format);
+						count += 2;
+						break;
+					}
 			}
 		}
 		else
 		{
-			my_putchar(*format);
-			char_count++;
+			putchar(c);
+			count++;
 		}
 		format++;
 	}
-	va_end(container);
-	return (char_count);
+	return (count);
 }
+
+/**
+ * _printf - entry point
+ * @format: char
+ * Return: 0
+ */
+
+int _printf(const char *format, ...)
+{
+	va_list args;
+	int count;
+
+	va_start(args, format);
+	count = process_format(format, args);
+
+	va_end(args);
+	return (count);
+}
+
