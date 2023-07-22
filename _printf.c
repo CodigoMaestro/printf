@@ -52,36 +52,46 @@ int process_format(const char *format, va_list args)
 		{
 			format++;
 
-			if (*format == '%')
+			if (*format == '\0')
 			{
-				return (-1);
+				my_putchar('%');
+				count++;
+				continue;
 			}
-			else if (*format == '% ')
+			else if (*format == ' ')
 			{
-				return (-1)
+				my_putchar('%');
+				my_putchar(' ');
+				count += 2;
+				format++;
+				continue;
 			}
-			else
+			else if (*format == '%')
 			{
-				switch (*format)
-				{
-					case 'c':
-						count += print_char(va_arg(args, int));
-						break;
-					case 's':
-						count += print_string(va_arg(args, const char *));
-						break;
-					case '%':
+				my_putchar('%');
+				count++;
+				continue;
+			}
+			
+			switch (*format)
+			{
+				case 'c':
+					count += print_char(va_arg(args, int));
+					break;
+				case 's':
+					count += print_string(va_arg(args, const char *));
+					break;
+				case '%':
+					my_putchar('%');
+					count++;
+					break;
+				default:
+					{
 						my_putchar('%');
-						count++;
+						my_putchar(*format);
+						count += 2;
 						break;
-					default:
-						{
-							my_putchar('%');
-							my_putchar(*format);
-							count += 2;
-							break;
-						}
-				}
+					}
 			}
 		}
 		else
