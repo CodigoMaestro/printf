@@ -52,16 +52,13 @@ int process_format(const char *format, va_list args)
 		{
 			format++;
 
-			if (c == '\0')
+			if (*format == '%')
 			{
-				my_putchar('%');
-				count++;
+				return (-1);
 			}
-			else if (c == ' ')
+			else if (*format == '% ')
 			{
-				my_putchar('%');
-				format++;
-				count ++;
+				return (-1)
 			}
 			else
 			{
