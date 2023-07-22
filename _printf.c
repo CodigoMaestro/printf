@@ -40,27 +40,28 @@ int print_string(const char *str)
  * @format: char
  * @count: int
  * Return: void
- */
+ 
 
 void handle_percent(char format, int *count)
 {
-	if (format == '\0')
+	if (*format == '\0')
 	{
-		my_putchar('%');
-		(*count)++;
+		return (-1);
 	}
-	else if (format == ' ')
+	if (*format != '%')
 	{
-		my_putchar('%');
-		my_putchar(' ');
-		(*count) += 2;
+		my_putchar(*format);
+		count++;
+		continue;
 	}
-	else if (format == '%')
+	else if (*format == '%')
 	{
 		my_putchar('%');
-		(*count)++;
+		count++;
+		continue;
 	}
 }
+*/
 
 /**
  * process_format - entry point
@@ -80,7 +81,7 @@ int process_format(const char *format, va_list args)
 		{
 			format++;
 
-			handle_percent(*format, &count);
+/*			handle_percent(*format, &count);*/
 
 			switch (*format)
 			{
@@ -125,6 +126,10 @@ int _printf(const char *format, ...)
 	int count;
 
 	va_start(args, format);
+
+	if (format == NULL)
+		return (-1);
+
 	count = process_format(format, args);
 
 	va_end(args);
