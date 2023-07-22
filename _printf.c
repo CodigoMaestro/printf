@@ -51,25 +51,40 @@ int process_format(const char *format, va_list args)
 		if (c == '%')
 		{
 			format++;
-			switch (*format)
+
+			if (*format == '\0')
 			{
-				case 'c':
-					count += print_char(va_arg(args, int));
-					break;
-				case 's':
-					count += print_string(va_arg(args, const char *));
-					break;
-				case '%':
-					my_putchar('%');
-					count++;
-					break;
-				default:
-					{
-						my_putchar('%');
-						my_putchar(*format);
-						count += 2;
+				my_putchar('%');
+				count++;
+			}
+			else if (*format == ' ')
+			{
+				my_putchar('%');
+				my_putchar(' ');
+				count += 2;
+			}
+			else
+			{
+				switch (*format)
+				{
+					case 'c':
+						count += print_char(va_arg(args, int));
 						break;
-					}
+					case 's':
+						count += print_string(va_arg(args, const char *));
+						break;
+					case '%':
+						my_putchar('%');
+						count++;
+						break;
+					default:
+						{
+							my_putchar('%');
+							my_putchar(*format);
+							count += 2;
+							break;
+						}
+				}
 			}
 		}
 		else
