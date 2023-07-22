@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include "main.h"
+#include <string.h>
 
 /**
  * print_char - entry point
@@ -100,12 +101,8 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
-	if (format == '% ')
+	if (strcmp(format, "% ") == 0 || strcmp(format, "%") == 0)
 		return (-1);
-
-	if (format == '%')
-		return (-1);
-
 	count = process_format(format, args);
 
 	va_end(args);
