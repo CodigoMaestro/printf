@@ -22,18 +22,24 @@ int print_char(char c)
 
 int print_string(const char *str)
 {
-	int count = 0;
+	/*int count = 0;*/
+	int i, len;
 
 	if (str == NULL)
-		return (0);
-
-	while (*str)
 	{
-		my_putchar(*str);
-		str++;
-		count++;
+		str = "(null)";
+		len = strlen(str);
+		for (i = 0; i < len; i++)
+			my_putchar(str[i]);
+		return (len);
 	}
-	return (count);
+	else
+	{
+		len = strlen(str);
+		for (i = 0; i < len; i++)
+			my_putchar(str[i]);
+		return (len);
+	}
 }
 
 /**
