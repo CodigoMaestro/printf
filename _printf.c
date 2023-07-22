@@ -60,8 +60,8 @@ int process_format(const char *format, va_list args)
 			else if (*format == ' ')
 			{
 				my_putchar('%');
-				my_putchar(' ');
-				count += 2;
+				format++;
+				count ++;
 			}
 			else
 			{
