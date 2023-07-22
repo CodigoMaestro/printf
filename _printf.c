@@ -52,7 +52,7 @@ int process_format(const char *format, va_list args)
 		{
 			format++;
 
-			if (*format == '\0')
+	/**		if (*format == '\0')
 			{
 				my_putchar('%');
 				count++;
@@ -72,7 +72,7 @@ int process_format(const char *format, va_list args)
 				count++;
 				continue;
 			}
-			
+	*/		
 			switch (*format)
 			{
 				case 'c':
