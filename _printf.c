@@ -103,6 +103,10 @@ int _printf(const char *format, ...)
 
 	if (strcmp(format, "% ") == 0 || strcmp(format, "%") == 0)
 		return (-1);
+	
+	if (format[1] == '\0')
+		return (-1);
+
 	count = process_format(format, args);
 
 	va_end(args);
