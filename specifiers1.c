@@ -7,9 +7,9 @@ int print_string(const char *str);
 int print_integer(int num);
 
 /**
- * print_int - prints integer
- * @args: argument to print
- * Return: number of characters printed
+ * print_int - entry point
+ * @args: va_list
+ * Return: int
  */
 
 int print_int(va_list args)
@@ -52,9 +52,9 @@ int print_int(va_list args)
 }
 
 /**
- * print_dec - prints decimal
- * @args: argument to print
- * Return: number of characters printed
+ * print_dec - entry point
+ * @args: va_list
+ * Return: int
  */
 
 int print_dec(va_list args)
@@ -124,6 +124,9 @@ int process_format_specifier(char format, va_list args, int count)
 			break;
 		case 'i':
 			count += print_int(args);
+			break;
+		case 'b':
+			count += print_unsigned(args);
 			break;
 		default:
 			{
