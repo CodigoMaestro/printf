@@ -58,28 +58,3 @@ int print_string(const char *str)
 		return (len);
 	}
 }
-
-/**
- * print_integer - entry point
- * @num: int
- * Return: 0
- */
-
-int print_integer(int num)
-{
-	int count = 0;
-	int len;
-
-	if (num < 0)
-	{
-		my_putchar('-');
-		count++;
-		num = -num;
-	}
-
-	len = snprintf(NULL, 0, "%d", num);
-
-	count += len;
-
-	return (count);
-}

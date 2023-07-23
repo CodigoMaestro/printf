@@ -11,8 +11,6 @@ int process_format_specifier(char format, va_list args, int count);
 int process_format(const char *format, va_list args);
 int print_char(char c);
 int print_string(const char *str);
-int print_integer(int num);
-
 int print_int(va_list args);
 
 #endif
