@@ -132,7 +132,7 @@ int process_format_specifier(char format, va_list args, int count)
 			count += print_unsigned(args);
 			break;
 		case 'o':
-			count += print_oct(args);
+			count += print_octal(args);
 			break;
 		case 'x':
 			count += print_hex(args);

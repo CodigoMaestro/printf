@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * print_unsigned - entry point
@@ -108,7 +109,7 @@ int print_octal(va_list args)
 	}
 	for (i = counter - 1; i >= 0; i--)
 	{
-		_putchar(array[i] + '0');
+		my_putchar(array[i] + '0');
 	}
 	free(array);
 	return (counter);
@@ -145,7 +146,7 @@ int print_hexa(va_list args)
 	{
 		if (array[i] > 9)
 			array[i] = array[i] + 7;
-		_putchar(array[i] + '0');
+		my_putchar(array[i] + '0');
 	}
 	free(array);
 	return (counter);
@@ -182,7 +183,7 @@ int print_hex(va_list args)
 	{
 		if (array[i] > 9)
 			array[i] = array[i] + 39;
-		_putchar(array[i] + '0');
+		my_putchar(array[i] + '0');
 	}
 	free(array);
 	return (counter);
