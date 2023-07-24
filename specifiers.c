@@ -68,7 +68,7 @@ int print_string(const char *str)
 int print_unsigned(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
-	unsigned int num, last = n % 10, digit, exp = 1;
+	int num, last = n % 10, digit, exp = 1;
 	int  i = 1;
 
 	n = n / 10;
