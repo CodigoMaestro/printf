@@ -61,7 +61,7 @@ int print_string(const char *str)
 
 /**
  * print_unsigned - entry point
- * @args: va_list
+ * @num: va_list
  * Return: int
  */
 
