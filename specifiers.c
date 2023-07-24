@@ -58,26 +58,3 @@ int print_string(const char *str)
 		return (len);
 	}
 }
-
-/**
- * print_binary - entry point
- * @num: va_list
- * Return: int
- */
-
-int print_binary(unsigned int num)
-{
-	int count = 0;
-	int i;
-	int bits = sizeof(unsigned int) * 8;
-	int bit;
-
-	for (i = bits - 1; i >= 0; i--)
-	{
-		bit = (num >> i) & 1;
-		my_putchar(bit + '0');
-		count++;
-	}
-	return (count);
-}
-

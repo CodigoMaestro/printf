@@ -12,7 +12,7 @@ int process_format(const char *format, va_list args);
 int print_char(char c);
 int print_string(const char *str);
 int print_int(va_list args);
-int print_unsigned(unsigned int num);
-int print_binary(unsigned int num);
+int print_unsigned(va_list args);
+int print_bin(va_list args);
 
 #endif
