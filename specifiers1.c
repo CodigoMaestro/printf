@@ -126,7 +126,7 @@ int process_format_specifier(char format, va_list args, int count)
 			count += print_int(args);
 			break;
 		case 'b':
-			count += print_unsigned(args);
+			count += print_unsigned(va_arg(args, unsigned int));
 			break;
 		default:
 			{

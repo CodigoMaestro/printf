@@ -65,20 +65,17 @@ int print_string(const char *str)
  * Return: int
  */
 
-int print_unsigned(va_list args)
+int print_unsigned(unsigned int num)
 {
-	unsigned int n = va_arg(args, unsigned int);
-	int num, last = n % 10, digit, exp = 1;
+	int last = num % 10, digit, exp = 1;
 	int  i = 1;
 
-	n = n / 10;
-	num = n;
+	num = num / 10;
 
 	if (last < 0)
 	{
 		my_putchar('-');
 		num = -num;
-		n = -n;
 		last = -last;
 		i++;
 	}
@@ -89,7 +86,7 @@ int print_unsigned(va_list args)
 			exp = exp * 10;
 			num = num / 10;
 		}
-		num = n;
+		num = num;
 		while (exp > 0)
 		{
 			digit = num / exp;
