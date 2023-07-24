@@ -74,3 +74,34 @@ int print_hex_helper(unsigned int num)
 	free(array);
 	return (counter);
 }
+
+/**
+ * print_pointer - entry point
+ * @args: va_list
+ * Return: int
+ */
+
+int print_pointer(va_list args)
+{
+	void *p;
+	char *s = "(nil)";
+	long int a;
+	int b;
+	int i;
+
+	p = va_arg(args, void*);
+	if (p == NULL)
+	{
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			my_putchar(s[i]);
+		}
+		return (i);
+	}
+
+	a = (unsigned long int)p;
+	my_putchar('0');
+	my_putchar('x');
+	b = print_hex_helper(a);
+	return (b + 2);
+}
