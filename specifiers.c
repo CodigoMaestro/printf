@@ -60,43 +60,24 @@ int print_string(const char *str)
 }
 
 /**
- * print_unsigned - entry point
+ * print_binary - entry point
  * @num: va_list
  * Return: int
  */
 
-int print_unsigned(unsigned int num)
+int print_binary(unsigned int num)
 {
-	int last = num % 10, digit, exp = 1;
-	int  i = 1;
+	int count = 0;
+	int i;
+	int bits = sizeof(unsigned int) * 8;
+	int bit;
 
-	num = num / 10;
-
-	if (last < 0)
+	for (i = bits - 1; i >= 0; i--)
 	{
-		my_putchar('-');
-		num = -num;
-		last = -last;
-		i++;
+		bit = (num >> i) & 1;
+		my_putchar(bit + '0');
+		count++;
 	}
-	if (num > 0)
-	{
-		while (num / 10 != 0)
-		{
-			exp = exp * 10;
-			num = num / 10;
-		}
-		num = num;
-		while (exp > 0)
-		{
-			digit = num / exp;
-			my_putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
-			i++;
-		}
-	}
-	my_putchar(last + '0');
-
-	return (i);
+	return (count);
 }
+
