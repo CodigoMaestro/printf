@@ -17,5 +17,7 @@ int print_bin(va_list args);
 int print_octal(va_list args);
 int print_hexa(va_list args);
 int print_hex(va_list args);
+int custom_string(va_list args);
+int print_hex_helper(unsigned int num);
 
 #endif
