@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * custom_string - entry point
@@ -12,7 +13,7 @@ int custom_string(va_list args)
 	int i, len = 0;
 	int cast;
 
-	s = va_arg(val, char *);
+	s = va_arg(args, char *);
 	if (s == NULL)
 		s = "(null)";
 	for (i = 0; s[i] != '\0'; i++)

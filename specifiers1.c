@@ -140,6 +140,9 @@ int process_format_specifier(char format, va_list args, int count)
 		case 'X':
 			count += print_hexa(args);
 			break;
+		case 'S':
+			count += custom_string(args);
+			break;
 		default:
 			{
 				my_putchar('%');
