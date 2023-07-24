@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * print_unsigned - prints integer
- * @args: argument to print
- * Return: number of characters printed
+ * print_unsigned - entry point
+ * @args: va_list
+ * Return: int
  */
+
 int print_unsigned(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
@@ -43,11 +44,13 @@ int print_unsigned(va_list args)
 
 	return (i);
 }
+
 /**
- * print_bin - prints a binary number.
- * @val: arguments.
+ * print_bin - entry point
+ * @val: va_list
  * Return: 1.
  */
+
 int print_bin(va_list val)
 {
 	int flag = 0;
@@ -74,4 +77,113 @@ int print_bin(va_list val)
 		my_putchar('0');
 	}
 	return (cont);
+}
+
+/**
+ * print_octal - entry point
+ * @args: va_list
+ * Return: counter.
+ */
+
+int print_octal(va_list args)
+{
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(args, unsigned int);
+	unsigned int temp = num;
+
+	while (num / 8 != 0)
+	{
+		num /= 8;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
+
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % 8;
+		temp /= 8;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
+}
+
+/**
+ * print_hexa - entry point.
+ * @args: va_list
+ * Return: counter.
+ */
+
+int print_hexa(va_list args)
+{
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(args, unsigned int);
+	unsigned int temp = num;
+
+	while (num / 16 != 0)
+	{
+		num /= 16;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
+
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % 16;
+		temp /= 16;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 7;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
+}
+
+/**
+ * print_hex - entry point
+ * @args: va_list
+ * Return: counter
+ */
+
+int print_hex(va_list args)
+{
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(args, unsigned int);
+	unsigned int temp = num;
+
+	while (num / 16 != 0)
+	{
+		num /= 16;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
+
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % 16;
+		temp /= 16;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 39;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }

@@ -128,6 +128,18 @@ int process_format_specifier(char format, va_list args, int count)
 		case 'b':
 			count += print_bin(args);
 			break;
+		case 'u':
+			count += print_unsigned(args);
+			break;
+		case 'o':
+			count += print_oct(args);
+			break;
+		case 'x':
+			count += print_hex(args);
+			break;
+		case 'X':
+			count += print_hexa(args);
+			break;
 		default:
 			{
 				my_putchar('%');
