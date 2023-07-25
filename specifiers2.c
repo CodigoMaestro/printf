@@ -2,14 +2,15 @@
 #include <stdlib.h>
 
 /**
- * print_unsigned - entry point
+ * print_u - entry point
  * @args: va_list
  * Return: int
  */
 
-int print_unsigned(va_list args)
+int print_u(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
+	/*unsigned int n = va_arg(args, unsigned int);*/
 	int num, last = n % 10, digit, exp = 1;
 	int  i = 1;
 
