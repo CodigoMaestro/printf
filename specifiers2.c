@@ -116,7 +116,7 @@ int print_octal(va_list args)
 }
 
 /**
- * print_hexa - Prints an unsigned integer in hexadecimal 
+ * print_hexa - Prints an unsigned integer in hexadecimal
  * format (lowercase).
  * @args: va_list containing the unsigned integer to print
  * Return: Number of characters printed
@@ -154,7 +154,7 @@ int print_hexa(va_list args)
 }
 
 /**
- * print_hex - Prints an unsigned integer in hexadecimal 
+ * print_hex - Prints an unsigned integer in hexadecimal
  * format (uppercase).
  * @args: va_list containing the unsigned integer to print.
  * Return: Number of characters printed.
