@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 /**
- * custom_string - entry point
- * @args: va_list
- * Return: int
+ * custom_string - Prints a custom string with non-printable characters as hex.
+ * @args: va_list containing the string to print.
+ * Return: The number of characters printed.
  */
 
 int custom_string(va_list args)
@@ -41,10 +41,11 @@ int custom_string(va_list args)
 }
 
 /**
- * print_hex_helper - entry point
- * @num: int
- * Return: int
+ * print_hex_helper - Prints the hexadecimal representation of a number.
+ * @num: The number to convert to hexadecimal.
+ * Return: The number of characters printed.
  */
+
 int print_hex_helper(unsigned int num)
 {
 	int i;
@@ -76,9 +77,9 @@ int print_hex_helper(unsigned int num)
 }
 
 /**
- * print_pointer - entry point
- * @args: va_list
- * Return: int
+ * print_pointer - Prints the hexadecimal representation of a pointer address.
+ * @args: va_list containing the pointer to print.
+ * Return: The number of characters printed.
  */
 
 int print_pointer(va_list args)
