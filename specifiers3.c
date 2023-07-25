@@ -105,4 +105,3 @@ int print_pointer(va_list args)
 	b = print_hex_helper(a);
 	return (b + 2);
 }
-
