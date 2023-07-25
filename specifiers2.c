@@ -2,15 +2,14 @@
 #include <stdlib.h>
 
 /**
- * print_u - entry point
- * @args: va_list
- * Return: int
+ * print_u - Prints an unsigned integer in decimal format
+ * @args: va_list containing the unsigned integer to print
+ * Return: Number of characters printed
  */
 
 int print_u(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
-	/*unsigned int n = va_arg(args, unsigned int);*/
 	int num, last = n % 10, digit, exp = 1;
 	int  i = 1;
 
@@ -48,9 +47,9 @@ int print_u(va_list args)
 }
 
 /**
- * print_bin - entry point
- * @val: va_list
- * Return: 1.
+ * print_bin - Prints an unsigned integer in binary format
+ * @val: va_list containing the unsigned integer to print
+ * Return: Number of characters printed
  */
 
 int print_bin(va_list val)
@@ -82,9 +81,9 @@ int print_bin(va_list val)
 }
 
 /**
- * print_octal - entry point
- * @args: va_list
- * Return: counter.
+ * print_octal - Prints an unsigned integer in octal format.
+ * @args: va_list containing the unsigned integer to print.
+ * Return: Number of characters printed.
  */
 
 int print_octal(va_list args)
@@ -117,9 +116,10 @@ int print_octal(va_list args)
 }
 
 /**
- * print_hexa - entry point.
- * @args: va_list
- * Return: counter.
+ * print_hexa - Prints an unsigned integer in hexadecimal 
+ * format (lowercase).
+ * @args: va_list containing the unsigned integer to print
+ * Return: Number of characters printed
  */
 
 int print_hexa(va_list args)
@@ -154,9 +154,10 @@ int print_hexa(va_list args)
 }
 
 /**
- * print_hex - entry point
- * @args: va_list
- * Return: counter
+ * print_hex - Prints an unsigned integer in hexadecimal 
+ * format (uppercase).
+ * @args: va_list containing the unsigned integer to print.
+ * Return: Number of characters printed.
  */
 
 int print_hex(va_list args)
