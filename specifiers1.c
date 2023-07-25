@@ -104,7 +104,7 @@ int print_dec(va_list args)
  * @count: The current count of characters printed.
  * Return: Updated count of characters printed.
  */
- 
+
 int process_format_specifier(char format, va_list args, int count)
 {
 	switch (format)
