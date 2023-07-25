@@ -7,9 +7,9 @@ int print_string(const char *str);
 int print_integer(int num);
 
 /**
- * print_int - entry point
- * @args: va_list
- * Return: int
+ * print_int - Prints a signed integer.
+ * @args: va_list containing the integer to be printed.
+ * Return: Number of characters printed.
  */
 
 int print_int(va_list args)
@@ -52,9 +52,9 @@ int print_int(va_list args)
 }
 
 /**
- * print_dec - entry point
- * @args: va_list
- * Return: int
+ * print_dec - Prints a signed integer.
+ * @args: va_list containing the integer to be printed.
+ * Return: Number of characters printed.
  */
 
 int print_dec(va_list args)
@@ -98,13 +98,13 @@ int print_dec(va_list args)
 }
 
 /**
- * process_format_specifier - entry point
- * @format: char
- * @args: va_list
- * @count: int
- * Return: int
+ * process_format_specifier - Processes a format specifier.
+ * @format: The format specifier character.
+ * @args: va_list of arguments to process.
+ * @count: The current count of characters printed.
+ * Return: Updated count of characters printed.
  */
-
+ 
 int process_format_specifier(char format, va_list args, int count)
 {
 	switch (format)
@@ -129,7 +129,7 @@ int process_format_specifier(char format, va_list args, int count)
 			count += print_bin(args);
 			break;
 		case 'u':
-			count += print_u(args);
+			count += print_unsigned(args);
 			break;
 		case 'o':
 			count += print_octal(args);
@@ -155,10 +155,10 @@ int process_format_specifier(char format, va_list args, int count)
 }
 
 /**
- * process_format - entry point
- * @format: char
- * @args: va_list
- * Return: int
+ * process_format - Processes the format string and its format specifiers.
+ * @format: The format string.
+ * @args: va_list of arguments to process.
+ * Return: Total number of characters printed.
  */
 
 int process_format(const char *format, va_list args)

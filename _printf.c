@@ -2,9 +2,10 @@
 #include <string.h>
 
 /**
- * _printf - entry point
- * @format: char
- * Return: 0
+ * _printf - Prints formatted output based on the format specifier.
+ * @format: A character string containing format specifiers.
+ *
+ * Return: The number of characters printed (excluding the null byte).
  */
 
 int _printf(const char *format, ...)
